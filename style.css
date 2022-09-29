@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+:root{
+  --clr-Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --clr-Soft-red: hsl(14, 88%, 65%);
+
+  --clr-Soft-violet: hsl(273, 75%, 66%);
+  --clr-Soft-blue: hsl(240, 73%, 65%);
+
+  --clr-Very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --clr-Dark-grayish-blue: hsl(240, 6%, 50%);
+
+  --clr-Light-grayish-blue: hsl(240, 5%, 91%);
+
+  --ff-body: 'Kumbh Sans', sans-serif;
+  --ff-heading: var(--ff-body);
+
+  --fw-normal: 400;
+  --fw-bold:700;
+
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+ 
+}
+
+html, body  {
+  height: 100%;
+  font-family: var(--ff-body);
+  font-weight:var(--fw-normal) ;
+  color:var(--clr-Very-dark-grayish-blue);
+  font-size: 12px;
+}
+
+body {
+ 
+  -webkit-font-smoothing: antialiased;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(0, var(--clr-Soft-blue), var(--clr-Soft-violet) );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding:2rem;
+}
+
+
+img, picture, video, canvas, svg {
+  display: block;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+ul {
+  list-style: none;
+}
+
+.centered{
+    text-align: center;
+  }
+
+  .card-container{
+    background: white;
+    display: grid;
+    padding:0; /* 2rem 2rem 2rem;*/
+    border-radius: 1em;
+    grid-template-rows: 8rem 1fr;
+    min-height:30em;
+  }
+  .text-side {
+    padding:0 2rem ;
+  }
+  
+  .img-side {
+    position: relative;
+    outline:0px solid red;
+  }
+  .img-container {
+   
+    background: url(./images/illustration-woman-online-mobile.svg)no-repeat top center ,
+     url(./images/bg-pattern-mobile.svg)no-repeat top 9rem center ;
+  
+    background-size: 20rem ;
+    position: absolute;
+    width:100%;
+    height:18rem;
+    transform: translateY(-50%);
+  }
+  h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3em;
+    font-weight: var(--fw-bold);
+    padding: 0.7em;
+  }  
+
+  .question{
+    color: var(--clr-Very-dark-grayish-blue);
+    border-bottom: 1px solid var(--clr-Light-grayish-blue);
+    font-size: 1.1rem;
+    padding: 1em 0;
+    transition: color ease-in-out 0.2s;
+    cursor:pointer;
+    position:relative;
+  }
+
+  .question::after{
+    position: absolute;
+    content: url('./images/icon-arrow-down.svg');
+    top:1em;
+    right:0;
+    width:10px;
+    height:7px;
+    transition: transform ease-in-out 0.5s;
+    
+  }
+  .question:hover {
+    color: var(--clr-Soft-red);
+  }
+
+  .question:last-child{
+    margin-bottom:2em;
+  }
+
+  .answer {
+    color: var(--clr-Very-dark-grayish-blue);
+    font-weight: var(--fw-normal);
+    padding: 0.7em 2em 0.3em 0;
+    transform: scale(1,0);
+    transform-origin: top;
+    max-height:0;
+    overflow:hidden;
+    transition:  max-height 0.4s ease-out, transform ease-in-out 0.4s;
+    
+    }
+
+.showed .answer {
+  transform: scale(1,1);
+  max-height: 6rem;
+}
+
+.showed {
+  font-weight: var(--fw-bold);
+}
+
+.showed::after {
+  transform:rotateX(180deg) translateY(-8px);
+}
+
+.attribution,  .attribution a {
+  color:white;
+  font-size: 1.1em;
+  padding-top:1em;
+}
+
+.attribution a:hover{
+  color:var(--clr-Soft-red);
+}
+
+ @media (min-width:763px){
+  .card-container{
+    grid-template-rows: unset;
+    grid-template-columns: 0.8fr 1fr;
+    max-width: 920px;
+    
+  }
+  .text-side{
+    padding: 4em 7em;
+  }
+  h1{
+    text-align: left;
+  }
+  .img-container {
+    background: url(./images/illustration-woman-online-desktop.svg)no-repeat center right,
+     url(./images/bg-pattern-desktop.svg )no-repeat  center  right  ;
+     background-size: 118% ,200%;
+     height: 100%;
+     transform: translateY(0);
+     position: relative;
+     outline: 0px solid red;
+
+  }
+
+  .img-container:before {
+    position: absolute;
+    content: '';
+    background: url(./images/illustration-box-desktop.svg)  no-repeat center left;
+    top:9%;
+    left:-23%;
+    width:100%;
+    height: 100%;
+   }
+
+ }   
+  
